@@ -16,7 +16,7 @@ namespace :deploy do
         on roles(:web) do
             within release_path do
                 execute :composer, :install
-                execute :npm, :install
+                #execute :npm, :install
                 execute :gulp, :deploy
             end
         end
