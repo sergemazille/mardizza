@@ -31,9 +31,6 @@ framework:
     fragments:       ~
     http_method_override: true
     assets: ~
-    php_errors:
-        log: true
-
 
 # Twig Configuration
 twig:
@@ -64,8 +61,7 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+#    disable_delivery: true
+    transport:  gmail
+    username:   "%mailer_user%"
+    password:   "%mailer_password%"

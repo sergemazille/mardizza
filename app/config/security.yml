@@ -1,11 +1,11 @@
 # To get started with security, check out the documentation:
-# http://symfony.com/doc/current/security.html
+# http://symfony.com/doc/current/book/security.html
 security:
 
-    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        mardizza_users:
+            entity: { class: AppBundle\Entity\User, property: email }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,10 +15,22 @@ security:
 
         main:
             anonymous: ~
+            guard:
+                authenticators:
+                    - mardizza.security.login_form_authenticator
+
+            logout:
+                path: /logout
+
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 604800 # 1 week in seconds
+                path:     /
+                always_remember_me: true
             # activate different ways to authenticate
 
             # http_basic: ~
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
