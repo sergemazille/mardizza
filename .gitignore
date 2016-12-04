@@ -16,3 +16,4 @@
 /web/bundles/
 /web/assets/
 .idea
+/node_modules/
