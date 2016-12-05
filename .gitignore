@@ -15,6 +15,6 @@
 /vendor/
 /web/bundles/
 /web/assets/
-.idea
+/.idea/
 /log/
 /node_modules/
