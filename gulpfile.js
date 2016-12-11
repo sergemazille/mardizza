@@ -34,7 +34,7 @@ gulp.task('lib', function () {
 
 // Style (less)
 gulp.task('style', function () {
-    return gulp.src('./src/AppBundle/Resources/public/style/*.less')
+    return gulp.src('./src/AppBundle/Resources/public/style/main.less')
         .pipe(less())
         .pipe(concat('app.css'))
         .pipe(cleanCSS({compatibility: 'ie8'}))
