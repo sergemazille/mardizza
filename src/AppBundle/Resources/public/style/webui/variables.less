@@ -1,0 +1,147 @@
+/////////////////////////////////////////////////////////////
+// Breakpoints and media queries
+
+@screen-xs: 480px;
+@screen-xs-min: @screen-xs;
+
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
+
+/////////////////////////////////////////////////////////////
+// Colors
+
+// base
+@primary: #274e75;
+@secondary: #1abc9c;
+@default: #c9c9c9;
+@info: #3498db;
+@success: #1abc5b;
+@warning: #f0ad4e;
+@danger: #e74c3c;
+
+@light-color: #fff;
+@dark-color: @primary-dark;
+@disabled: 20%;
+@btn-disabled: 0.5;
+
+// variants
+@primary-light: lighten(@primary, 20%);
+@primary-faded: screen(@primary, #eee);
+@primary-dark: darken(@primary, 10%);
+
+@secondary-light: lighten(@secondary, 20%);
+@secondary-faded: screen(@secondary, #eee);
+@secondary-dark: darken(@secondary, 10%);
+
+@default-light: lighten(@default, 20%);
+@default-faded: screen(@default, #eee);
+@default-dark: darken(@default, 10%);
+
+/////////////////////////////////////////////////////////////
+// Buttons
+
+// padding
+@btn-padding-horizontal: @font-size-base * 2.95;
+@btn-padding-vertical: @font-size-base * .35;
+
+// radius
+@btn-border-radius-base: @border-radius-base;
+
+// font
+@btn-font-family: @font-family-sans-serif;
+@btn-font-weight: 700;
+
+// color
+@btn-default-color: @dark-color;
+@btn-default-bg: @default;
+
+@btn-info-color: @light-color;
+@btn-info-bg: @info;
+
+@btn-success-color: @light-color;
+@btn-success-bg: @success;
+
+@btn-warning-color: @light-color;
+@btn-warning-bg: @warning;
+
+@btn-danger-color: @light-color;
+@btn-danger-bg: @danger;
+
+@btn-primary-color: @light-color;
+@btn-primary-bg: @primary;
+
+@btn-secondary-color: @light-color;
+@btn-secondary-bg: @secondary;
+
+/////////////////////////////////////////////////////////////
+// Measures
+
+@border-radius-base: 3px;
+@padding-base-vertical: 6px;
+@padding-base-horizontal: 12px;
+
+@margin-vertical: 12px;
+
+/////////////////////////////////////////////////////////////
+// Typography
+
+// defaults
+@font-color-base: @primary;
+@font-size-base: 17px;
+@font-weight-base: 500;
+@line-height-base: 1.4;
+@line-height-computed: floor(@font-size-base * @line-height-base);
+@icon-size: floor(@font-size-base * 2 / @line-height-base);
+
+// fonts
+@font-path: "../fonts/";
+@font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif: Georgia, "Times New Roman", Times, serif;
+@font-family-icon: 'icomoon';
+
+// headings
+@headings-font-family: inherit;
+@headings-font-weight: 700;
+@headings-line-height: 1.1;
+@headings-color: inherit;
+
+// icons content
+@icon-alert: "\e900";
+@icon-arrow-down: "\e901";
+@icon-check: "\e902";
+@icon-checkbox: "\e903";
+@icon-checkbox-checked: "\e904";
+@icon-chevron-left: "\e905";
+@icon-chevron-right: "\e906";
+@icon-radio: "\e907";
+@icon-radio-checked: "\e908";
+@icon-warning: "\e909";
+
+/////////////////////////////////////////////////////////////
+// Forms
+
+// inputs
+@input-bg: #fff;
+@input-bg-disabled: fade(@default, @disabled);
+@input-color: @font-color-base;
+@input-border: @primary-light;
+@input-border-size: 1px;
+@input-focus-spread: 3px;
+@input-border-radius: @border-radius-base;
+@input-border-focus: @secondary;
+@input-color-placeholder: lighten(@primary, 50%);
+@input-height-base: (@line-height-computed + (@padding-base-vertical * 2) + 2);
+
+// dropdown
+@dropdown-width: 300px;
+@dropdown-hover-color: @primary;

@@ -1,0 +1,67 @@
+body {
+    font-family: @font-family-sans-serif;
+    font-size: @font-size-base;
+    font-weight: @font-weight-base;
+    line-height: @line-height-base;
+    color: @font-color-base;
+}
+
+// icons
+.icon-alert:before {
+    content: @icon-alert;
+}
+.icon-arrow-down:before {
+    content: @icon-arrow-down;
+}
+.icon-check:before {
+    content: @icon-check;
+}
+.icon-checkbox:before {
+    content: @icon-checkbox;
+}
+.icon-checkbox-checked:before {
+    content: @icon-checkbox-checked;
+}
+.icon-radio:before {
+    content: @icon-radio;
+}
+.icon-radio-checked:before {
+    content: @icon-radio-checked;
+}
+.icon-warning:before {
+    content: @icon-warning;
+}
+
+textarea {
+    height: pow(@padding-base-vertical, 2.5);
+}
+
+// typography
+h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1.7;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 1.5;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.block {
+    background-color: @primary-faded;
+    padding: 32px;
+    border: 1px solid @default;
+}
+
+// reset bootstrap defaults
+.label {
+    .reset-label();
+}
