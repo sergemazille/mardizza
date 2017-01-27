@@ -1,0 +1,150 @@
+/////////////////////////////////////////////////////////////
+// Colors
+
+// base
+$grey: #aeaeae;
+$primary: #274e75;
+$secondary: #1abc9c;
+$info: #3498db;
+$success: #1abc5b;
+$warning: #f0ad4e;
+$danger: #e74c3c;
+$error: $danger;
+$alert: $danger;
+$bg: #f0f0f0;
+
+// variants
+$grey-light: lighten($grey, 12%);
+$grey-faded: lighten($grey-light, 8%);
+$grey-dark: darken($grey, 35%);
+
+$primary-light: lighten($primary, 20%);
+$primary-faded: mix($primary, lighten($grey-light, 8%), 10%);
+$primary-dark: darken($primary, 10%);
+
+$secondary-light: lighten($secondary, 20%);
+$secondary-faded: mix($secondary, lighten($grey-light, 8%), 10%);
+$secondary-dark: darken($secondary, 20%);
+
+/////////////////////////////////////////////////////////////
+// Fonts & Text
+
+$font-path: "../fonts/";
+$font-family-primary: 'Open Sans', Helvetica, Arial, sans-serif !default;
+$font-family-icon: 'icomoon' !default;
+$font-size-root: 16px !default;
+$font-size-base: 1rem !default;
+$font-color-base: mix($primary-dark, $grey, 78%);
+$line-height-base: 1.5 !default;
+$font-weight-normal: 400;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+// icons content
+$icon-alert: "\e900";
+$icon-arrow-down: "\e901";
+$icon-calendar: "\e902";
+$icon-checkbox: "\e903";
+$icon-checkbox-checked: "\e904";
+$icon-chevron-left: "\e905";
+$icon-chevron-right: "\e906";
+$icon-comment: "\e907";
+$icon-cross: "\e908";
+$icon-facebook: "\e909";
+$icon-group: "\e90a";
+$icon-heart: "\e90b";
+$icon-heart-o: "\e90c";
+$icon-help: "\e90d";
+$icon-info: "\e90e";
+$icon-not-allowed: "\e90f";
+$icon-radio: "\e910";
+$icon-radio-checked: "\e911";
+$icon-sheriff: "\e912";
+$icon-star: "\e913";
+$icon-star-o: "\e914";
+$icon-stats: "\e915";
+$icon-success: "\e916";
+$icon-tag: "\e917";
+$icon-tag-o: "\e918";
+$icon-thumb: "\e919";
+$icon-twitter: "\e91a";
+$icon-user: "\e91b";
+$icon-warning: "\e91c";
+$icon-zoom: "\e91d";
+
+/////////////////////////////////////////////////////////////
+// Buttons
+
+// padding
+$btn-padding-horizontal: 2.25em;
+$btn-padding-vertical: .4em;
+$btn-font-weight: $font-weight-semi-bold;
+
+/////////////////////////////////////////////////////////////
+// Forms
+
+// inputs
+$input-bg-disabled: lighten($grey-light, 2%);
+$input-border-disabled: $grey;
+$input-color-disabled: $grey-dark;
+
+$input-bg: #fff;
+$input-border: $primary-light;
+$input-color: $font-color-base;
+
+$input-border-size: 1px;
+$input-focus-spread: 3px;
+$input-color-placeholder: $primary-dark;
+
+$input-font-size: 1em;
+$input-feedback-padding: 2em;
+
+/////////////////////////////////////////////////////////////
+// z-index
+
+$pagination-icon-z: 1;
+$backdrop-hidden-z: 2;
+$tooltip-z: 2;
+$dropdown-z: 3;
+$notification-z: 4;
+$backdrop-z: 5;
+$dialog-z: 6;
+
+/////////////////////////////////////////////////////////////
+// Grid
+
+// width represents MIN value break-point
+$xxs: 320px;
+$xs: 480px;
+$sm: 640px;
+$md: 800px;
+$xmd: 1280px;
+$lg: 1600px;
+$xl: 1920px;
+$xxl: 2400px;
+
+// used for flexgrid
+$xxs-min: $xxs;
+$xs-min: $xs;
+$sm-min: $sm;
+$md-min: $md;
+$xmd-min: $xmd;
+$lg-min: $lg;
+$xl-min: $xl;
+$xxl-min: $xxl;
+
+$xxs-max: $xs - 1;
+$xs-max: $sm - 1;
+$sm-max: $md - 1;
+$md-max: $xmd - 1;
+$xmd-max: $lg - 1;
+$lg-max: $xl - 1;
+$xl-max: $xxl - 1;
+
+/////////////////////////////////////////////////////////////
+// Misc.
+
+$radius: 3px;
+$padding-base-horizontal: .75em;
+$padding-base-vertical: .5em;
+$tab-height: 2.25em;

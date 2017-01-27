@@ -1,0 +1,80 @@
+.clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after { clear: both; }
+}
+
+.backdrop-hidden {
+    background-color: transparent;
+    position: fixed;
+    z-index: $backdrop-hidden-z;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+@mixin hidden() {
+    display: none;
+}
+
+// hidden/visible utils classes
+.hidden { @include hidden(); }
+
+$break-points:
+    ("xxs", $xxs-min, $xxs-max),
+    ("xs", $xs-min, $xs-max),
+    ("sm", $sm-min, $sm-max),
+    ("md", $md-min, $md-max),
+    ("lg", $lg-min, $lg-max),
+    ("xl", $xl-min, $xl-max),
+    ("xxl", $xxl-min, 16000px);
+
+// utils elements default to hidden
+[class*="visible-"] { @include hidden(); }
+
+@each $bp, $min-width, $max-width in $break-points {
+    @media screen and (min-width: $min-width) and (max-width: $max-width){
+        .visible-#{$bp} {
+            display: block;
+        }
+    }
+}
+
+
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+
+// background and colors
+@mixin bg-class($class, $bg, $color) {
+    .bg-#{$class} {
+        background-color: $bg;
+        color: $color;
+    }
+}
+
+$bg-classes:
+    ("primary", $primary, #fff),
+    ("primary-faded", $primary-faded, $primary-dark),
+    ("primary-light", $primary-light, #fff),
+    ("primary-dark", $primary-dark, #fff),
+    ("secondary", $secondary, #fff),
+    ("secondary-faded", $secondary-faded, $primary-dark),
+    ("secondary-light", $secondary-light, $primary-dark),
+    ("secondary-dark", $secondary-dark, #fff),
+    ("grey", $grey, #fff),
+    ("grey-faded", $grey-faded, #fff),
+    ("grey-light", $grey-light, #fff),
+    ("grey-dark", $grey-dark, #fff),
+    ("success", $success, #fff),
+    ("info", $info, #fff),
+    ("warning", $warning, #fff),
+    ("error", $error, #fff);
+
+@each $class, $bg, $color in $bg-classes {
+    @include bg-class($class, $bg, $color);
+}

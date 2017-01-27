@@ -1,0 +1,152 @@
+body {
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $font-color-base;
+    background-color: $bg;
+}
+
+// Typography
+h1, .h1 {
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    font-size: 1.75em;
+    line-height: 1.65;
+    margin-bottom: .9em;
+
+    @media screen and (min-width: $lg-min) {
+        font-size: 2.25em;
+        line-height: 1.65;
+    }
+}
+
+h2, .h2 {
+    font-weight: $font-weight-bold;
+    font-size: 2em;
+    line-height: 1.5;
+    margin-bottom: .75em;
+}
+
+h3, .h3 {
+    font-weight: $font-weight-semi-bold;
+    font-size: 1.6em;
+    margin-bottom: .6em;
+}
+
+h4, .h4 {
+    font-weight: $font-weight-semi-bold;
+    font-size: 1.15em;
+    margin-bottom: .4em;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1em;
+    margin-bottom: .25em;
+}
+
+a {
+    color: $secondary;
+    text-decoration: none;
+
+    &:hover {
+        color: $secondary-dark;
+        text-decoration: underline;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    width: 100%; // smallest screens, fromm 0 to $xs
+    margin: auto;
+
+    @media screen and (min-width: $xs-min) {
+        width: 416px;
+    }
+
+    @media screen and (min-width: $sm-min) {
+        width: 576px;
+    }
+
+    @media screen and (min-width: $md-min) {
+        width: 736px;
+    }
+
+    @media screen and (min-width: $xmd-min) {
+        width: 1024px;
+    }
+
+    @media screen and (min-width: $lg-min) {
+        width: 1344px;
+    }
+
+    @media screen and (min-width: $xl-min) {
+        width: 1664px;
+    }
+
+    @media screen and (min-width: $xxl-min) {
+        width: 1888px;
+    }
+}
+
+abbr {
+    text-decoration-style: dotted !important;
+    cursor: help;
+}
+
+hr {
+    border-bottom: 1px solid transparentize($primary-dark, .9);
+}
+
+textarea {
+    width: 100%;
+    height: 6em;
+    border: 1px solid $input-border;
+    border-radius: $radius;
+    padding: .5em;
+    color: $font-color-base;
+
+    &:focus {
+        $color-rgba: rgba(red($font-color-base), green($font-color-base), blue($font-color-base), .6); // box shadow custom color
+        $color-dark: darken($font-color-base, 15%);
+
+        border-color: $color-dark;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),
+        0 0 $input-focus-spread $color-rgba;
+    }
+}
+
+// Icons
+.icon-alert:before { content: $icon-alert; }
+.icon-arrow-down:before { content: $icon-arrow-down; }
+.icon-calendar:before { content: $icon-calendar; }
+.icon-checkbox:before { content: $icon-checkbox; }
+.icon-checkbox-checked:before { content: $icon-checkbox-checked; }
+.icon-chevron-left:before { content: $icon-chevron-left; }
+.icon-chevron-right:before { content: $icon-chevron-right; }
+.icon-comment:before { content: $icon-comment; }
+.icon-cross:before { content: $icon-cross; }
+.icon-facebook:before { content: $icon-facebook; }
+.icon-group:before { content: $icon-group; }
+.icon-heart:before { content: $icon-heart; }
+.icon-heart-o:before { content: $icon-heart-o; }
+.icon-help:before { content: $icon-help; }
+.icon-info:before { content: $icon-info; }
+.icon-not-allowed:before { content: $icon-not-allowed; }
+.icon-radio:before { content: $icon-radio; }
+.icon-radio-checked:before { content: $icon-radio-checked; }
+.icon-sheriff:before { content: $icon-sheriff; }
+.icon-star:before { content: $icon-star; }
+.icon-star-o:before { content: $icon-star-o; }
+.icon-stats:before { content: $icon-stats; }
+.icon-success:before { content: $icon-success; }
+.icon-tag:before { content: $icon-tag; }
+.icon-tag-o:before { content: $icon-tag-o; }
+.icon-thumb:before { content: $icon-thumb; }
+.icon-twitter:before { content: $icon-twitter; }
+.icon-user:before { content: $icon-user; }
+.icon-warning:before { content: $icon-warning; }
+.icon-zoom:before { content: $icon-zoom; }

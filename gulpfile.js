@@ -2,8 +2,10 @@
 
 // dependencies
 const gulp = require('gulp');
-const less = require('gulp-less');
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
 const concat = require('gulp-concat');
+const autoprefixer = require('autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const babelify = require('babelify');
 const browserify = require('browserify');
@@ -27,29 +29,36 @@ gulp.task('babelify', function () {
         .pipe(gulp.dest('web/assets/js'));
 });
 
-gulp.task('lib', function () {
-    return gulp.src('./src/AppBundle/Resources/public/js/lib/*.js')
-        .pipe(gulp.dest('./web/assets/js/lib'));
+// Style (sass)
+gulp.task('style', function () {
+    return gulp.src('./src/AppBundle/Resources/public/style/main.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .on('error', function (err) {
+            console.error(err);
+            this.emit('end');
+        })
+        .pipe(postcss([ autoprefixer() ]))
+        .pipe(concat('app.css'))
+        .pipe(cleanCSS())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('web/assets/style'));
 });
 
-// Style (less)
-gulp.task('style', function () {
-    return gulp.src('./src/AppBundle/Resources/public/style/main.less')
-        .pipe(less())
-        .pipe(concat('app.css'))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest('./web/assets/style'));
+// Fonts (move only)
+gulp.task('fonts', function () {
+    return gulp.src('./src/AppBundle/Resources/public/fonts/*.*')
+        .pipe(gulp.dest('web/assets/fonts'));
 });
 
 // Watches
 gulp.task('watch', function () {
-    gulp.watch('./src/AppBundle/Resources/public/js/*.js', ['babelify']);
-    gulp.watch('./src/AppBundle/Resources/public/js/lib/*.js', ['lib']);
-    gulp.watch('./src/AppBundle/Resources/public/style/*.less', ['style']);
+    gulp.watch('./src/AppBundle/Resources/public/js/**/*.js', ['babelify']);
+    gulp.watch('./src/AppBundle/Resources/public/style/**/*.scss', ['style']);
 });
 
 // Default
 gulp.task('default', ['deploy', 'watch']);
 
 // Deploy only (without watch task)
-gulp.task('deploy', ['babelify', 'lib', 'style']);
+gulp.task('deploy', ['babelify', 'style', 'fonts']);

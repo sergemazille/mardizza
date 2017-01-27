@@ -1,0 +1,131 @@
+// Used to style examples
+
+.content { padding: 32px; }
+
+.group {
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.colors {
+    [class*="-color"] {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 1.5em;
+
+        [class*="bg-"] {
+            width: 22%;
+            margin-right: 2%;
+            height: 75px;
+            border-radius: $radius;
+        }
+    }
+}
+
+.buttons, .states-input-buttons, .notifications-test-buttons, .dialog-test-buttons {
+    [class*="btn-"] {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+}
+
+.input {
+    h3 {
+        margin-top: 16px;
+    }
+}
+
+.dropdown .dropdown-trigger {
+    min-width: 220px;
+}
+
+.icons {
+    .icon-fonts { font-size: 1.65em; }
+    .icon-images { img { width: 3em; } }
+}
+
+.notifications-block {
+    [class*="demo-"] { margin-bottom: .5em; }
+    .demo-success { @extend .notification-success };
+    .demo-info { @extend .notification-info };
+    .demo-warning { @extend .notification-warning };
+    .demo-error { @extend .notification-error };
+}
+
+[class*="dialog-"] {
+    .buttons-row {
+        justify-content: flex-end;
+
+        [class*="btn-"] {
+            width: 100%;
+
+            @media screen and (max-width: $sm-max) {
+                margin: .25em 0;
+            }
+        }
+    }
+}
+
+.dialog-sm {
+    .buttons-row {
+        [class*="btn-"] {
+            @media screen and (max-width: $md-max) {
+                margin: .25em 0;
+            }
+        }
+    }
+}
+
+.inset {
+    padding-left: 1.5em;
+}
+
+.typography-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.icons {
+    .icon-fonts {
+        display: flex;
+        flex-wrap: wrap;
+
+        [class*="icon-"] {
+            margin: .25em;
+        }
+    }
+}
+
+.demo-block {
+    background-color: $bg;
+    padding: 1em;
+}
+
+.demo-inputs {
+    margin-bottom: .75em;
+}
+
+.demo-flexgrid {
+    [class*="col-"] {
+        margin-bottom: 1em;
+
+        [class*="bg-"] {
+            height: 100%;
+            padding: .5em;
+        }
+    }
+
+    // remove margin-button on nestable demo flexgrid for aesthetic reasons
+    .demo-nestable-columns {
+        [class*="col-"] {
+            margin-bottom: 0;
+        }
+    }
+
+    // aesthetic
+    .demo-responsive-columns {
+        span {
+            display: block;
+        }
+    }
+}

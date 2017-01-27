@@ -1,0 +1,40 @@
+$break-points:
+    ("xxs", $xxs-min),
+    ("xs", $xs-min),
+    ("sm", $sm-min),
+    ("md", $md-min),
+    ("xmd", $xmd-min),
+    ("lg", $lg-min),
+    ("xl", $xl-min),
+    ("xxl", $xxl-min);
+
+.row {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    margin-right: - .5em;
+    margin-left: - .5em;
+
+    // defaults
+    [class*="col-"] {
+        box-sizing: border-box;
+
+        padding-right: .5em;
+        padding-left: .5em;
+
+        width: 100%;
+    }
+
+    @each $bp, $min-width in $break-points {
+        @for $i from 1 through 12 {
+            @media screen and (min-width: $min-width) {
+                .col-#{$bp}-#{$i} {
+                    flex-basis: percentage($i/12);
+                    max-width: percentage($i/12);
+                }
+            }
+        }
+    }
+}

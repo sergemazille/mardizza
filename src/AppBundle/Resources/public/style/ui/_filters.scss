@@ -1,0 +1,155 @@
+.filter {
+    display: flex;
+
+    @media screen and (max-width: $xs-max) {
+        display: block;
+        width: 100%;
+    }
+
+    &.disabled {
+        .filter-label {
+            background-color: $grey-faded;
+            color: $primary-faded;
+            border-radius: $radius;
+            transition: background-color .1s ease-in-out;
+        }
+
+        .filter-list, .filter-clear {
+            visibility: hidden;
+        }
+    }
+
+    .filter-list {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        border: 2px solid $primary;
+        min-width: 2em;
+        min-height: 3em;
+
+        .filter-item {
+            background-color: $secondary;
+            color: #fff;
+            padding: .25em .25em .25em .75em;
+            margin: .25em;
+            border-radius: $radius;
+            cursor: pointer;
+            user-select: none;
+
+            &:hover:after {
+                color: $secondary-dark;
+                background-color: $secondary-light;
+            }
+
+            &:after {
+                font-family: $font-family-icon;
+                content: $icon-cross;
+                border-radius: 1em;
+                padding: .45em;
+                margin-left: .5em;
+                font-size: .75em;
+            }
+        }
+    }
+
+    .filter-label, .filter-clear {
+        justify-content: center;
+        line-height: 2;
+
+        background-color: $primary;
+        color: #fff;
+        padding: .5em 1em;
+        user-select: none;
+    }
+
+    .filter-label {
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+
+        @media screen and (max-width: $xs-max) {
+            border-bottom-left-radius: 0; // reset
+
+            border-top-left-radius: $radius;
+            border-top-right-radius: $radius;
+        }
+    }
+
+    .filter-clear, .filter-clear-xs {
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
+        cursor: pointer;
+
+        &:hover:after {
+            color: $primary-dark;
+            background-color: $primary-light;
+        }
+
+        &:after {
+            font-family: $font-family-icon;
+            content: $icon-cross;
+            padding: .25em .5em;
+            border-radius: 2em;
+        }
+    }
+
+    /* small screen behaviour */
+
+    // small screen clear out button is hidden by default (visible only on small screens)
+    .filter-clear-xs {
+        display: none;
+    }
+
+    // hide default clear out button
+    @media screen and (max-width: $xs-max) {
+        .filter-clear {
+            padding: 0;
+            display: none;
+        }
+
+        .filter-label {
+            .filter-clear-xs {
+                display: inline-block;
+                float: right;
+            }
+        }
+
+        &.disabled {
+            .filter-label {
+                .filter-clear-xs {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.tag {
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        .tag-item {
+            background-color: $secondary;
+            color: #fff;
+            padding: .25em .75em .25em .25em;
+            margin: .25em;
+            border-radius: $radius;
+            cursor: pointer;
+            user-select: none;
+
+            &:hover:before {
+                color: $secondary-dark;
+                background-color: $secondary-light;
+            }
+
+            &:before {
+                font-family: $font-family-icon;
+                content: $icon-tag;
+                vertical-align: -10%;
+                border-radius: 1em;
+                padding: .3em;
+                margin-right: .5em;
+            }
+        }
+    }
+}

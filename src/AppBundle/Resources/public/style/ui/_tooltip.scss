@@ -1,0 +1,33 @@
+.tooltip[data-tip] {
+    color: $secondary;
+
+    &:before {
+        font-family: $font-family-icon;
+        content: $icon-help;
+        vertical-align: -10%;
+    }
+
+    &:hover {
+        cursor: help;
+        position: relative;
+    }
+
+    &:hover:before, &:active:before, &:focus:before {
+        color: $secondary-dark;
+    }
+
+    &:hover:after {
+        content: attr(data-tip);
+        padding: .5em .75em;
+        color: $primary;
+        background-color: $secondary-faded;
+        position: absolute;
+        left: 0;
+        top: -3em;
+        border: 0;
+        border-radius: $radius;
+        z-index: $tooltip-z;
+        white-space: nowrap;
+        box-shadow: 3px 3px 6px rgba(0,0,0,.25);
+    }
+}
