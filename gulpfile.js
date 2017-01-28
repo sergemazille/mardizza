@@ -51,6 +51,12 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest('web/assets/fonts'));
 });
 
+// Images (move only)
+gulp.task('images', function () {
+    return gulp.src('./src/AppBundle/Resources/public/images/**/*.*')
+        .pipe(gulp.dest('web/assets/images'));
+});
+
 // Watches
 gulp.task('watch', function () {
     gulp.watch('./src/AppBundle/Resources/public/js/**/*.js', ['babelify']);
@@ -61,4 +67,4 @@ gulp.task('watch', function () {
 gulp.task('default', ['deploy', 'watch']);
 
 // Deploy only (without watch task)
-gulp.task('deploy', ['babelify', 'style', 'fonts']);
+gulp.task('deploy', ['babelify', 'style', 'fonts', 'images']);
