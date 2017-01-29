@@ -1,0 +1,66 @@
+.masthead {
+    background-color: $primary;
+    opacity: .75;
+    color: #fff;
+    width: 100%;
+    height: 4em;
+    position: fixed;
+
+    display: flex;
+    align-items: center;
+
+    @media screen and (min-width: $sm-min) {
+        height: 6em;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: $xxs-max) {
+            padding: 0 1em;
+        }
+
+        .logo {
+            font-size: 2.5em;
+
+            @media screen and (max-width: $xxs-max) {
+                flex: 65 0 auto; // center align
+                text-align: right;
+            }
+
+            @media screen and (min-width: $sm-min) {
+                font-size: 3.5em;
+            }
+
+            &:hover {
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .login {
+            text-align: right;
+
+            @media screen and (max-width: $xxs-max) {
+                flex: 35 0 auto; // center align logo
+            }
+
+            @media screen and (min-width: $sm-min) {
+                font-size: 1.5em;
+            }
+        }
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            color: $secondary;
+            text-decoration: underline;
+        }
+    }
+}
