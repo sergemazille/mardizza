@@ -1,9 +1,11 @@
 <header class="masthead">
     <div class="container">
-        <div class="logo"><a href="{{ path('home') }}">Mardizza!!!</a></div>
+        <div class="header-content">
+            <div class="logo"><a href="{{ path('home') }}">Mardizza!!!</a></div>
 
-        {% if user is not defined %}
-            <div class="login"><a href="#">Log in</a></div>
-        {% endif %}
+            {% if user is not defined %}
+                <div class="login"><a href="#">Log in</a></div>
+            {% endif %}
+        </div>
     </div>
 </header>
