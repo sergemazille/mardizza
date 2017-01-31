@@ -1,0 +1,33 @@
+.cta-card {
+    background-color: $secondary;
+    text-align: center;
+    padding: 1em 1em 0;
+
+    .cta-card-head {
+        color: #fff;
+
+        [class*="icon-"] {
+            font-size: 48px;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1em;
+            margin-bottom: 1em;
+        }
+    }
+
+    .cta-card-content {
+        font-size: 14px;
+        padding-bottom: 1em;
+        border-bottom: 1px solid #fff;
+
+        .logo {
+            color: #fff;
+            font-size: 1.75em;
+        }
+    }
+
+    // no bottom border on last cta card
+    &:last-child { .cta-card-content { border-bottom: none; } }
+}
