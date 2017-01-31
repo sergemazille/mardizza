@@ -6,12 +6,12 @@
         background-position: top left;
         background-size: cover;
         height: 18em;
-        padding: 5.5em 1em 0;
+        padding-top: 5.5em;
         text-align: center;
 
         @media screen and (min-width: $md-min) {
             height: 28em;
-            padding: 10em 1em 0;
+            padding-top: 10em;
         }
 
         @media screen and (min-width: $lg-min) {
@@ -70,6 +70,32 @@
 
             [class*="icon-"] {
                 padding-right: .5em;
+            }
+        }
+    }
+
+    .cta {
+        background-color: $secondary;
+
+        @media screen and (min-width: $xs-min) {
+            background-color: transparent;
+        }
+
+        .cta-cards {
+            @media screen and (min-width: $xs-min) {
+                padding-top: 2em;
+            }
+
+            .cta-card {
+                border-bottom: 1px solid #fff;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                @media screen and (min-width: $xs) {
+                    border-bottom: none;
+                }
             }
         }
     }

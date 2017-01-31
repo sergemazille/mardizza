@@ -5,35 +5,33 @@
     height: 4em;
     position: fixed;
 
-    display: flex;
-    align-items: center;
-
     @media screen and (min-width: $md-min) {
         height: 6em;
     }
 
     .header-content {
+        height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        // minimum screen size, small aesthetic padding
-        @media screen and (max-width: $xxs-max) {
-            padding: 0 1em;
-        }
+        // logo centering (from 0 to $sm-max)
+        & > * { width: 33%; }
 
-        // center logo on small screens
-        @media screen and (max-width: $sm-max) {
-            //justify-content: space-around;
+        @media screen and (min-width: $md-min) {
+            & > * { width: auto; }
+            .flex-item-util { display: none; }
         }
 
         .logo {
             font-size: 2.5em;
 
-            // center logo on small screens
-            @media screen and (max-width: $sm-max) {
-                //position: absolute;
-                margin-left: auto;
+            // logo centering (from 0 to $sm-max)
+            display: flex;
+            justify-content: center;
+
+            @media screen and (min-width: $md-min) {
+                display: inherit;
             }
 
             @media screen and (min-width: $md-min) {
@@ -48,7 +46,7 @@
         }
 
         .login {
-            margin-left: auto;
+            text-align: right;
 
             @media screen and (min-width: $md-min) {
                 font-size: 1.5em;

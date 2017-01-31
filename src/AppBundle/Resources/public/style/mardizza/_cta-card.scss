@@ -1,7 +1,14 @@
 .cta-card {
     background-color: $secondary;
     text-align: center;
-    padding: 1em 1em 0;
+    padding: 1em 0;
+
+    @media screen and (min-width: $xs-min) {
+        padding: 1em 0 2em;
+        margin-bottom: 2em;
+        border-radius: $radius;
+        box-shadow: $card-shadow;
+    }
 
     .cta-card-head {
         color: #fff;
@@ -13,14 +20,13 @@
 
         h2 {
             font-size: 1em;
+            font-weight: $font-weight-semi-bold;
             margin-bottom: 1em;
         }
     }
 
     .cta-card-content {
         font-size: 14px;
-        padding-bottom: 1em;
-        border-bottom: 1px solid #fff;
 
         .logo {
             color: #fff;
