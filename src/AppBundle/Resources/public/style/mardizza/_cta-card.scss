@@ -4,29 +4,46 @@
     padding: 1em 0;
 
     @media screen and (min-width: $xs-min) {
-        padding: 1em 0 2em;
+        padding: 1em 2em 2em;
         margin-bottom: 2em;
         border-radius: $radius;
         box-shadow: $card-shadow;
+    }
+
+    @media screen and (min-width: $md-min) {
+        padding: 1.5em 2em 2em;
     }
 
     .cta-card-head {
         color: #fff;
 
         [class*="icon-"] {
-            font-size: 48px;
+            font-size: 3em;
             margin-bottom: 1rem;
+
+            @media screen and (min-width: $md-min) {
+                font-size: 4.5em;
+                margin-bottom: 1.5rem;
+            }
         }
 
         h2 {
             font-size: 1em;
             font-weight: $font-weight-semi-bold;
-            margin-bottom: 1em;
+            margin-bottom: 1rem;
+
+            @media screen and (min-width: $md-min) {
+                font-size: 2.5em;
+            }
         }
     }
 
     .cta-card-content {
         font-size: 14px;
+
+        @media screen and (min-width: $md-min) {
+            font-size: 1.5em;
+        }
 
         .logo {
             color: #fff;
