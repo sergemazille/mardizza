@@ -83,10 +83,11 @@
 
         .cta-cards {
             @media screen and (min-width: $xs-min) {
-                padding-top: 2em;
+                padding: 2em 0;
             }
 
             @media screen and (min-width: $lg-min) {
+                padding: 8em 0;
                 display: flex;
                 justify-content: space-between;
             }
@@ -99,11 +100,22 @@
                 }
 
                 @media screen and (min-width: $xs) {
+                    margin-bottom: 2em;
                     border-bottom: none;
+
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
                 }
 
                 @media screen and (min-width: $lg) {
                     flex: 1 0 0;
+                    margin-right: 8%;
+                    margin-bottom: 0;
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
                 }
             }
         }
