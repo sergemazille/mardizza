@@ -49,13 +49,33 @@
         </section>
         
         <section class="features-teaser">
-            <div class="features-illustration">
-                <div class="features-illustration-top">
-                    <div class="icon-heart"></div>
-                    <div class="icon-comment"></div>
+            <div class="container">
+                <div class="features-illustration">
+                    <div class="features-illustration-top">
+                        <div class="icon-heart"></div>
+                        <div class="icon-comment"></div>
+                    </div>
+
+                    <div class="featured-pizza">
+                        <img src="{{ asset('assets/images/home-pizza-card-pizza.png') }}" alt="">
+                    </div>
+
+                    <div class="features-illustration-bottom">
+
+                        <div class="featured-pizza-name">
+                            <p>Pizza du mois</p>
+                        </div>
+
+                        {# rating stars #}
+                        <div class="featured-pizza-rating">
+                            {% for i in 1..4 %}
+                                <span class="icon-star"></span>
+                            {% endfor %}
+                            <span class="icon-star-o"></span>
+                        </div>
+
+                    </div>
                 </div>
-                <img src="{{ asset('assets/images/home-pizza-card-pizza.png') }}" alt="">
-                <div class="icon-star-o"></div>
             </div>
         </section>
     </main>
