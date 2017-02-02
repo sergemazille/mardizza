@@ -16,6 +16,8 @@
 
         @media screen and (min-width: $xs-min) {
             padding: 2em;
+            border-radius: $radius;
+            box-shadow: $card-shadow;
         }
 
         .features-illustration-top, .features-illustration-bottom {
