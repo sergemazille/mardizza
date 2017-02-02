@@ -1,0 +1,23 @@
+.features-teaser {
+    .features-illustration {
+        background: url('../images/home-pizza-card-bg.jpg');
+        background-repeat: no-repeat;
+        background-color: $primary-dark;
+        background-position: top left;
+        background-size: cover;
+
+        padding: 1em;
+
+        .features-illustration-top {
+            display: flex;
+            justify-content: space-between;
+
+            .icon-heart { color: $red; }
+            .icon-comment { color: #fff; }
+        }
+
+        img {
+            margin-left: 50px;
+        }
+    }
+}
