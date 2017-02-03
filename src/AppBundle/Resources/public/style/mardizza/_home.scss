@@ -1,4 +1,12 @@
+@import "home/_cta-card.scss";
+@import "home/_features-teaser.scss";
+
 .home {
+
+    .logo {
+        line-height: 1;
+    }
+
     .jumbotron {
         background: url('../images/home-bg.jpg');
         background-repeat: no-repeat;
