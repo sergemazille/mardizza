@@ -1,0 +1,75 @@
+
+.jumbotron {
+    background: url('../images/home-bg.jpg');
+    background-repeat: no-repeat;
+    background-color: $primary-faded;
+    background-position: top left;
+    background-size: cover;
+    height: 18em;
+    padding-top: 5.5em;
+    text-align: center;
+
+    @media screen and (min-width: $md-min) {
+        height: 28em;
+        padding-top: 10em;
+    }
+
+    @media screen and (min-width: $lg-min) {
+        height: 46em;
+    }
+
+    .logo {
+        font-size: 4.5em;
+        color: #fff;
+
+        @media screen and (max-width: $xmd-max) {
+            display: none;
+        }
+
+        @media screen and (min-width: $lg-min) {
+            font-size: 5.5em;
+        }
+    }
+
+    h1 {
+        text-transform: none;
+        font-size: 1em;
+        font-weight: $font-weight-normal;
+        color: #fff;
+        margin-bottom: 3em;
+
+        @media screen and (min-width: $xs-min) {
+            font-size: 1.5em;
+            margin-bottom: 1.5em;
+        }
+
+        @media screen and (min-width: $md-min) {
+            font-size: 2em;
+        }
+
+        @media screen and (min-width: $lg-min) {
+            font-size: 3em;
+            margin-bottom: 2.5em;
+        }
+
+        b {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    [class*="btn-"] {
+        font-size: 1em;
+
+        @media screen and (min-width: $md-min) {
+            font-size: 1.25em;
+        }
+
+        @media screen and (min-width: $lg-min) {
+            font-size: 2em;
+        }
+
+        [class*="icon-"] {
+            padding-right: .5em;
+        }
+    }
+}

@@ -1,0 +1,264 @@
+.blocks {
+    [class$="-block"] {
+        margin: 0 -1em; // nullify container padding on xxs screens
+        padding: 0 0 1em;
+
+        &.dark-bg {
+            background-color: $primary-faded;
+        }
+
+        @media screen and (min-width: $xs-min) {
+            padding: 2em 0;
+        }
+
+        @media screen and (min-width: $lg-min) {
+            padding: 8em 0;
+        }
+    }
+
+    .block-container {
+        @media screen and (min-width: $lg-min) {
+            display: flex;
+            align-items: center;
+
+            // pizza image
+            & > * { flex: 1 1 50%; }
+        }
+
+        [class$="-block-presentation"] {
+            padding: 1em;
+
+            @media screen and (min-width: $xs-min) {
+                padding: 2em;
+                border-radius: $radius;
+                box-shadow: $card-shadow;
+            }
+
+            @media screen and (min-width: $lg-min) {
+                margin-right: 2em;
+            }
+        }
+
+        .block-text {
+            padding: 1em 1em 0;
+            font-size: 14px;
+            text-align: justify;
+
+            @media screen and (min-width: $xs-min) {
+                padding: 2em 2em 0;
+            }
+
+            @media screen and (min-width: $md-min) {
+                font-size: 1em;
+            }
+
+            @media screen and (min-width: $xmd-min) {
+                font-size: 1.25em;
+            }
+
+            @media screen and (min-width: $lg-min) {
+                padding: 0;
+                padding-left: 2em;
+                font-size: 1.5em;
+            }
+
+            p:last-of-type {
+                margin-bottom: 1em;
+
+                @media screen and (min-width: $xs-min) {
+                    margin-bottom: 0;
+                }
+            }
+
+            .logo {
+                font-size: 1.5em;
+
+                @media screen and (min-width: $md-min) {
+                    font-size: 1.65em;
+                }
+            }
+        }
+    }
+
+    // specifics
+    .block-container {
+        .pizza-card-block-presentation {
+            background: url('../images/home-pizza-card-bg.jpg');
+            background-repeat: no-repeat;
+            background-color: $primary-dark;
+            background-position: center center;
+            background-size: cover;
+
+            .block-presentation-top, .block-presentation-bottom {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .block-presentation-top {
+                font-size: 1.5em;
+
+                @media screen and (min-width: $xs-min) {
+                    font-size: 2em;
+                }
+
+                @media screen and (min-width: $md-min) {
+                    font-size: 2.5em;
+                }
+
+                @media screen and (min-width: $lg-min) {
+                    font-size: 3.5em;
+                }
+
+                .icon-heart { color: $red; }
+                .icon-comment { color: #fff; }
+            }
+
+            .featured-pizza {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 70%;
+
+                    @media screen and (min-width: $xs-min) {
+                        width: 50%;
+                    }
+                }
+            }
+
+            .block-presentation-bottom {
+                align-items: flex-end;
+
+                .featured-pizza-name p {
+                    font-family: $font-family-logo;
+                    color: #fff;
+                    font-size: 1.5em;
+                    margin-bottom: 0;
+                    line-height: .75;
+
+                    @media screen and (min-width: $xs-min) {
+                        font-size: 2em;
+                    }
+
+                    @media screen and (min-width: $md-min) {
+                        font-size: 2.5em;
+                    }
+
+                    @media screen and (min-width: $md-min) {
+                        font-size: 3em;
+                    }
+                }
+
+                .icon-star, .icon-star-o {
+                    font-size: 1em;
+                    color: #ffcc00;
+
+                    @media screen and (min-width: $xs-min) {
+                        font-size: 1.25em;
+                    }
+
+                    @media screen and (min-width: $md-min) {
+                        font-size: 1.5em;
+                    }
+
+                    @media screen and (min-width: $md-min) {
+                        font-size: 2em;
+                    }
+                }
+            }
+        }
+
+        .config-block-presentation {
+            .presentation-container {
+                padding-bottom: 1em;
+                border-bottom: 1px solid $primary-faded;
+
+                @media screen and (min-width: $xs-min) {
+                    padding-bottom: 0;
+                    border-bottom: none;
+                }
+
+                .option-container {
+                    &:not(:last-of-type) {
+                        padding-bottom: 2em;
+                    }
+
+                    .h3 {
+                        text-align: center;
+                    }
+
+                    .h4 {
+                        font-size: 1.15em;
+
+                        @media screen and (min-width: $md-min) {
+                            font-size: 1.35em;
+                        }
+                    }
+
+                    label, p {
+                        font-size: 1em;
+
+                        @media screen and (min-width: $md-min) {
+                            font-size: 1.15em;
+                        }
+                    }
+
+                    input[type="number"] { width: 4em; }
+
+                    .demo-squared-blocks {
+                        display: flex;
+                        justify-content: flex-start;
+
+                        @media screen and (min-width: $xs-min) {
+                            justify-content: space-around;
+                        }
+
+                        .demo-group-color, .demo-image-container {
+                            width: 4.75em;
+                            height: 4.75em;
+                            border-radius: $radius;
+
+                            @media screen and (min-width: $sm-min) {
+                                width: 6em;
+                                height: 6em;
+                            }
+                        }
+
+                        .demo-group-color {
+                            background-color: $secondary;
+                            margin-right: 1em;
+
+                            @media screen and (min-width: $xs-min) {
+                                margin-right: 0;
+                            }
+                        }
+
+                        .demo-image-container {
+                            border: 1px solid $primary-faded;
+                            display: flex;
+                            justify-content: center;
+
+                            img {
+                                width: 90%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .availability-block-presentation {
+            background-color: #fff;
+            padding: 0;
+
+            @media screen and (min-width: $xs-min) {
+                padding: .75em;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

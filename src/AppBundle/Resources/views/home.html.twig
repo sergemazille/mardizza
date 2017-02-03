@@ -20,7 +20,7 @@
                         </div>
                         <div class="cta-card-content">
                             <p>Fatigué de compter sur des bouts de papier&nbsp;: qui a pris quoi, qui doit combien&nbsp;?</p>
-                            <p>La commande de groupe est au coeur de <span class="logo">Mardizza!!!</span></p>
+                            <p>La commande de groupe est au cœur de <span class="logo">Mardizza!!!</span></p>
                         </div>
                     </div>
 
@@ -47,41 +47,140 @@
                 </div>
             </div>
         </section>
-        
-        <section class="features-teaser">
-            <div class="container">
-                <div class="features-container">
-                    <div class="features-illustration">
-                        <div class="features-illustration-top">
-                            <div class="icon-heart"></div>
-                            <div class="icon-comment"></div>
-                        </div>
 
-                        <div class="featured-pizza">
-                            <img src="{{ asset('assets/images/home-pizza-card-pizza.png') }}" alt="">
-                        </div>
-
-                        <div class="features-illustration-bottom">
-
-                            <div class="featured-pizza-name">
-                                <p>Pizza du mois</p>
+        <section class="blocks">
+            <div class="dark-bg pizza-card-block">
+                <div class="container">
+                    <div class="block-container">
+                        <div class="pizza-card-block-presentation">
+                            <div class="block-presentation-top">
+                                <div class="icon-heart"></div>
+                                <div class="icon-comment"></div>
                             </div>
 
-                            {# rating stars #}
-                            <div class="featured-pizza-rating">
-                                {% for i in 1..4 %}
-                                    <span class="icon-star"></span>
-                                {% endfor %}
-                                <span class="icon-star-o"></span>
+                            <div class="featured-pizza">
+                                <img src="{{ asset('assets/images/home-pizza-card-pizza.png') }}" alt="">
                             </div>
 
+                            <div class="block-presentation-bottom">
+
+                                <div class="featured-pizza-name">
+                                    <p>Pizza du mois</p>
+                                </div>
+
+                                {# rating stars #}
+                                <div class="featured-pizza-rating">
+                                    {% for i in 1..4 %}
+                                        <span class="icon-star"></span>
+                                    {% endfor %}
+                                    <span class="icon-star-o"></span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="block-text">
+                            <p>Notez, commentez, mettez en favoris... <span class="logo">Mardizza!!!</span> est là pour vous faciliter la tâche.</p>
+                            <p>La semaine prochaine, essayez donc la pizza que votre collègue vient de noter 5&nbsp;étoiles, et ajoutez en commentaire ce que vous en avez pensé.</p>
+                            <p>Vous voulez vous souvenir de l'excellente pizza que vous avez mangé ce midi&nbsp;? Ajoutez-la simplement à vos favoris.</p>
                         </div>
                     </div>
-                    <div class="features-text">
-                    <p>Notez, commentez, mettez en favoris... <span class="logo">Mardizza!!!</span> est là pour vous faciliter la tâche.</p>
-                    <p>La semaine prochaine, essayez donc la pizza que votre collègue vient de noter 5&nbsp;étoiles, et ajoutez en commentaire ce que vous en avez pensé.</p>
-                    <p>Vous voulez vous souvenir de l'excellente pizza que vous avez mangé ce midi&nbsp;? Ajoutez-la simplement à vos favoris.</p>
                 </div>
+            </div>
+
+            <div class="config-block">
+                <div class="container">
+                    <div class="block-container">
+                        <div class="config-block-presentation">
+                            <div class="presentation-container">
+                                <div class="h3">Exemples de configurations disponibles</div>
+                                <div class="option-container">
+
+                                    <div class="h4">Options du groupe</div>
+                                    <div class="row">
+
+                                        <div class="col-xxs-12 col-xs-6">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <label>Nom du responsable :
+                                                        <input type="text" class="form-control" value="John" placeholder="John Doe">
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <label>Nombre de tampons de fidélité
+                                                        <input type="number" class="form-control" value="2" disabled>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xxs-12 col-xs-6">
+                                            <div class="demo-squared-blocks">
+                                                <div class="demo-color">
+                                                    <p>Couleur :</p>
+                                                    <div class="demo-group-color"></div>
+                                                </div>
+
+                                                <div class="demo-image">
+                                                    <p>Image :</p>
+                                                    <div class="demo-image-container">
+                                                        <img src="{{ asset('assets/images/icons/group-default-image.svg') }}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="option-container">
+                                    <div class="h4">Options de commandes</div>
+
+                                    <div class="form-group">
+                                        <div class="toggle">
+                                            <label class="config-checkbox">
+                                                <input type="checkbox">
+                                                <span class="toggle-button"></span>
+                                                <span class="label">Activer les promotions</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="toggle">
+                                            <label class="config-checkbox">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-button"></span>
+                                                <span class="label">Changer de responsable</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="block-text">
+                            <p>Paramétrez <span class="logo">Mardizza!!!</span> comme vous l’entendez grâce à son outil de configuration puissant et intuitif.</p>
+                            <p>Vous souhaitez changer régulièrement de responsable&nbsp;? Il suffit d’activer l’option correspondante et un membre du groupe sera tiré au sort à chaque nouvelle commande.</p>
+                            <p><a href="{{ path('login') }}">Créez votre compte gratuit</a> et venez découvrir toutes les options proposées par <span class="logo">Mardizza!!!</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dark-bg availability-block">
+                <div class="container">
+                    <div class="block-container">
+                        <div class="availability-block-presentation">
+                            <img src="{{ asset('assets/images/home-pizza-illustration.jpg') }}" alt="">
+                        </div>
+
+                        <div class="block-text">
+                            <p>Même si chez <span class="logo">Mardizza!!!</span> nous pensons qu’une bonne pizza doit se déguster un mardi, nous savons faire preuve de souplesse et nous adapter à vos préférences.</p>
+                            <p>Il est donc tout à fait possible d’utiliser <span class="logo">Mardizza!!!</span> le mercredi, et même, si l’envie incongrue vous en prend, un autre jour de la semaine ou du Week-End.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

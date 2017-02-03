@@ -1,59 +1,100 @@
-.cta-card {
+.cta {
     background-color: $secondary;
-    text-align: center;
-    padding: 1em 0;
 
     @media screen and (min-width: $xs-min) {
-        padding: 1em 2em 2em;
-        border-radius: $radius;
-        box-shadow: $card-shadow;
+        background-color: transparent;
     }
 
-    @media screen and (min-width: $md-min) {
-        padding: 1.5em 2em 2em;
-    }
-
-    .cta-card-head {
-        color: #fff;
-
-        [class*="icon-"] {
-            font-size: 3em;
-            margin-bottom: 1rem;
-
-            @media screen and (min-width: $md-min) {
-                font-size: 4.5em;
-                margin-bottom: 1.5rem;
-            }
+    .cta-cards {
+        @media screen and (min-width: $xs-min) {
+            padding: 2em 0;
         }
 
-        h2 {
-            font-size: 1em;
-            font-weight: $font-weight-semi-bold;
-            margin-bottom: 1rem;
+        @media screen and (min-width: $lg-min) {
+            padding: 8em 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cta-card {
+            background-color: $secondary;
+            text-align: center;
+            padding: 1em 0;
+            border-bottom: 1px solid #fff;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            @media screen and (min-width: $xs-min) {
+                padding: 1em 2em 2em;
+                border-radius: $radius;
+                box-shadow: $card-shadow;
+                margin-bottom: 2em;
+                border-bottom: none;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
 
             @media screen and (min-width: $md-min) {
-                font-size: 2.5em;
+                padding: 1.5em 2em 2em;
             }
 
             @media screen and (min-width: $lg-min) {
-                font-size: 1.75em;
+                flex: 1 0 0;
+                margin-right: 8%;
+                margin-bottom: 0;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
             }
+
+            .cta-card-head {
+                color: #fff;
+
+                [class*="icon-"] {
+                    font-size: 3em;
+                    margin-bottom: 1rem;
+
+                    @media screen and (min-width: $md-min) {
+                        font-size: 4.5em;
+                        margin-bottom: 1.5rem;
+                    }
+                }
+
+                h2 {
+                    font-size: 1em;
+                    font-weight: $font-weight-semi-bold;
+                    margin-bottom: 1rem;
+
+                    @media screen and (min-width: $md-min) {
+                        font-size: 2.5em;
+                    }
+
+                    @media screen and (min-width: $lg-min) {
+                        font-size: 1.75em;
+                    }
+                }
+            }
+
+            .cta-card-content {
+                font-size: 14px;
+
+                @media screen and (min-width: $md-min) {
+                    font-size: 1.5em;
+                }
+
+                .logo {
+                    color: #fff;
+                    font-size: 1.5em;
+                }
+            }
+
+            // no bottom border on last cta card
+            &:last-child { .cta-card-content { border-bottom: none; } }
         }
     }
-
-    .cta-card-content {
-        font-size: 14px;
-
-        @media screen and (min-width: $md-min) {
-            font-size: 1.5em;
-        }
-
-        .logo {
-            color: #fff;
-            font-size: 1.5em;
-        }
-    }
-
-    // no bottom border on last cta card
-    &:last-child { .cta-card-content { border-bottom: none; } }
 }
