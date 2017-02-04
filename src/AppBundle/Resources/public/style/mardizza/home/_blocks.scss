@@ -204,6 +204,13 @@
                         }
                     }
 
+                    .refresh {
+                        background-image: url('#{$icon-path}refresh.svg');
+                        background-repeat: no-repeat;
+                        background-position: 99.5% center;
+                        background-size: 2em;
+                    }
+
                     input[type="number"] { width: 4em; }
 
                     .demo-squared-blocks {
