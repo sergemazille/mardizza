@@ -7,6 +7,7 @@ set :keep_releases, 5
 set :use_sudo, true
 set :writable_dirs, ["var/cache", "var/logs"]
 set :permission_method, :chown
+set :ssh_options, {:forward_agent => true}
 
 append :linked_dirs, 'node_modules', 'var/sessions', 'web/assets/files', 'web/.well-known'
 append :linked_files, 'app/config/parameters.yml'
