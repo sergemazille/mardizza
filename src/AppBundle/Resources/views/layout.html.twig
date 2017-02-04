@@ -12,7 +12,7 @@
 
 {% block content %}{% endblock %}
 
-{% block footer %}{% endblock %}
+{% block footer %} {{ include('@App/partials/footer.html.twig') }} {% endblock %}
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous">

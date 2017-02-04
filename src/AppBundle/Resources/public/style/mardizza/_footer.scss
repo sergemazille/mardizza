@@ -1,0 +1,86 @@
+.main-footer {
+    background-color: $primary;
+    color: #fff;
+    padding: 1em 0;
+
+    @media screen and (min-width: $md-min) {
+        padding: 2em 0;
+    }
+
+    @media screen and (min-width: $lg-min) {
+        padding: 2.5em 0;
+    }
+
+    a {
+        color: #fff;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+
+    .links-container {
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (min-width: $xs-min) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .menu-links {
+        margin-bottom: 1em;
+        font-size: 1.25em;
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (min-width: $xs-min) {
+            margin-bottom: 0;
+            justify-content: flex-start;
+            font-size: 1em;
+
+            * {
+                padding-right: .5em;
+            }
+        }
+
+        @media screen and (min-width: $md-min) {
+            font-size: 1.5em;
+        }
+
+        @media screen and (min-width: $lg-min) {
+            font-size: 1.75em;
+        }
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 2em;
+
+        @media screen and (min-width: $xs-min) {
+            font-size: 1.5em;
+        }
+
+        @media screen and (min-width: $md-min) {
+            font-size: 2em;
+        }
+
+        @media screen and (min-width: $lg-min) {
+            font-size: 2.8em;
+        }
+
+        .icon-twitter {
+            margin-left: 1rem;
+
+            @media screen and (min-width: $lg-min) {
+                margin-left: 2rem;
+            }
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+    }
+}

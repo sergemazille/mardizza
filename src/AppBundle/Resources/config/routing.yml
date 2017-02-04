@@ -4,3 +4,12 @@ home:
 
 login:
     path: /login
+
+about:
+    path: /about
+
+faq:
+    path: /faq
+
+contact:
+    path: /contact
