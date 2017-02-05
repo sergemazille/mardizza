@@ -5,9 +5,28 @@
     height: 4em;
     position: fixed;
     z-index: 4;
+    transition: background-color, height .3s;
 
     @media screen and (min-width: $md-min) {
         height: 6em;
+    }
+
+    &.small {
+        background-color: $primary;
+        height: 3.5em;
+        transition: background-color, height .3s;
+
+        .header-content {
+            .logo {
+                font-size: 2.5em;
+                transition: font-size .3s;
+            }
+
+            .login {
+                font-size: 1.25em;
+                transition: font-size .3s;
+            }
+        }
     }
 
     .header-content {
@@ -26,6 +45,7 @@
 
         .logo {
             font-size: 2.5em;
+            transition: font-size .3s;
 
             // logo centering (from 0 to $sm-max)
             display: flex;
@@ -49,6 +69,7 @@
         .login {
             text-align: right;
             padding-right: 1em;
+            transition: font-size .3s;
 
             @media screen and (min-width: $md-min) {
                 font-size: 1.5em;
