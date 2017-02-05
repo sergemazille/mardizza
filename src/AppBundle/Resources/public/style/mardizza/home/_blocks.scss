@@ -204,11 +204,32 @@
                         }
                     }
 
-                    .refresh {
-                        background-image: url('#{$icon-path}refresh.svg');
-                        background-repeat: no-repeat;
-                        background-position: 99.5% center;
-                        background-size: 2em;
+                    .button-group {
+                        display: flex;
+
+                        .group-manager-name {
+                            border-top-right-radius: 0;
+                            border-bottom-right-radius: 0;
+                            border-right: none;
+
+                            &:disabled {
+                                background-image: none;
+
+                                & + [class^="btn-"] {
+                                    background-color: $grey;
+                                    color: $grey-dark;
+                                    cursor: not-allowed;
+                                }
+                            }
+                        }
+
+                        [class^="btn-"] {
+                            width: 2.5em;
+                            padding: 0 .75em;
+                            border-top-left-radius: 0;
+                            border-bottom-left-radius: 0;
+                            box-shadow: none;
+                        }
                     }
 
                     input[type="number"] { width: 4em; }

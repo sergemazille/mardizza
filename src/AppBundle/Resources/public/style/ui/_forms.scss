@@ -135,6 +135,11 @@
         background-repeat: no-repeat;
         background-position: 99.5% center;
         background-size: $input-feedback-padding;
+
+        // exceptions
+        &[type="number"] {
+            background-image: none; // we don't want a big background image on a small input form type
+        }
     }
 }
 
