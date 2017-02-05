@@ -7,10 +7,6 @@
         padding: 2em 0;
     }
 
-    @media screen and (min-width: $lg-min) {
-        padding: 2.5em 0;
-    }
-
     a {
         color: #fff;
 
@@ -49,10 +45,6 @@
             font-size: 1.5em;
         }
 
-        @media screen and (min-width: $lg-min) {
-            font-size: 1.75em;
-        }
-
         .h-divider {
             font-size: .9em;
         }
@@ -71,16 +63,8 @@
             font-size: 2em;
         }
 
-        @media screen and (min-width: $lg-min) {
-            font-size: 2.8em;
-        }
-
         .icon-twitter {
             margin-left: 1rem;
-
-            @media screen and (min-width: $lg-min) {
-                margin-left: 2rem;
-            }
         }
 
         a:hover {
