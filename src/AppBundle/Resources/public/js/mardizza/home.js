@@ -6,10 +6,8 @@ const $groupManagerInput = $(".group-manager-name");
 const $loyaltyStampsInput = $(".stamps-input");
 let changedAllowed = true;
 
-// enable/disable loyalty stamps number input on button toggling
-$('.promo-activation').on("change", function() {
-    $loyaltyStampsInput.prop("disabled", ! $loyaltyStampsInput.prop("disabled"));
-});
+//////////////////////
+// manager config part
 
 // manager name change
 function getRandomManagerName() {
@@ -33,4 +31,13 @@ $('.manager-activation').on("change", function() {
     $groupManagerInput.prop("disabled", ! $groupManagerInput.prop("disabled"));
 
     buttonClickBehaviour();
+});
+
+////////////////////
+// loyalty card part
+
+// enable/disable loyalty stamps number input on button toggling
+$('.promo-activation').on("change", function() {
+    $loyaltyStampsInput.prop("disabled", ! $loyaltyStampsInput.prop("disabled"));
+    $(".loyalty-group").toggleClass("invisible");
 });
