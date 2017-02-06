@@ -12,6 +12,19 @@ const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
+const exec = require('gulp-exec');
+
+// configs
+let options = {
+    continueOnError: false, // default = false, true means don't emit error event
+    pipeStdout: false, // default = false, true means stdout is written to file.contents
+};
+
+let reportOptions = {
+    err: true, // default = true, false means don't write err
+    stderr: true, // default = true, false means don't write stderr
+    stdout: true // default = true, false means don't write stdout
+};
 
 // Scripts (ES6)
 gulp.task('babelify', function () {
@@ -57,6 +70,25 @@ gulp.task('images', function () {
         .pipe(gulp.dest('web/assets/images'));
 });
 
+// Tests
+gulp.task('tests', function () {
+    let cmd = "php ./vendor/behat/behat/bin/behat";
+
+    return gulp.src('.')
+        .pipe(exec(cmd, options))
+        .pipe(exec.reporter(reportOptions));
+});
+
+// Deploy
+gulp.task('capistrano', ['tests'], function () {
+
+    let cmd = "cap dev deploy";
+
+    return gulp.src('.')
+        .pipe(exec(cmd, options))
+        .pipe(exec.reporter(reportOptions));
+});
+
 // Watches
 gulp.task('watch', function () {
     gulp.watch('./src/AppBundle/Resources/public/js/**/*.js', ['babelify']);
@@ -64,7 +96,9 @@ gulp.task('watch', function () {
 });
 
 // Default
-gulp.task('default', ['deploy', 'watch']);
+gulp.task('default', ['assets', 'watch']);
 
-// Deploy only (without watch task)
-gulp.task('deploy', ['babelify', 'style', 'fonts', 'images']);
+// compile and move assets (without watch task)
+gulp.task('assets', ['babelify', 'style', 'fonts', 'images']);
+
+gulp.task('deploy', ['tests', 'capistrano']);

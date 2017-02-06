@@ -1,0 +1,10 @@
+default:
+    suites:
+        default:
+            paths: [ %paths.base%/tests/behat/features ]
+            contexts: [ Tests\Behat\Context\FeatureContext ]
+
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://mardizza.local
+            goutte: ~

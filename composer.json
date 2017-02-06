@@ -8,7 +8,10 @@
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
-        "psr-4": { "Tests\\": "tests/" }
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Tests\\Behat\\Context\\": "tests/behat/context/"
+        }
     },
     "require": {
         "php": ">=5.5.9",
@@ -26,7 +29,9 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "behat/mink-extension": "^2.2",
+        "behat/mink-goutte-driver": "^1.2"
     },
     "scripts": {
         "symfony-scripts": [
