@@ -212,6 +212,10 @@
                             border-bottom-right-radius: 0;
                             border-right: none;
 
+                            @media screen and (min-width: $xs-min) and (max-width: $xs-max) {
+                                width: 7em;
+                            }
+
                             &:disabled {
                                 background-image: none;
 
