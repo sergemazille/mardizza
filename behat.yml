@@ -1,0 +1,11 @@
+default:
+    autoload:
+        '': %paths.base%/tests/features
+    suites:
+        default:
+            paths: [ %paths.base%/tests/features ]
+
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://mardizza.local
+            goutte: ~
