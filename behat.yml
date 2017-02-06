@@ -1,9 +1,8 @@
 default:
-    autoload:
-        '': %paths.base%/tests/features
     suites:
         default:
-            paths: [ %paths.base%/tests/features ]
+            paths: [ %paths.base%/tests/behat/features ]
+            contexts: [ Tests\Behat\Context\FeatureContext ]
 
     extensions:
         Behat\MinkExtension:

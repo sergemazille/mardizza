@@ -10,7 +10,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Tests\\Behat\\": "tests/behat/bootstrap/"
+            "Tests\\Behat\\Context\\": "tests/behat/context/"
         }
     },
     "require": {

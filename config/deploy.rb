@@ -18,7 +18,7 @@ namespace :deploy do
             within release_path do
                 execute :composer, :install
                 #execute :npm, :install
-                execute :gulp, :deploy
+                execute :gulp, :assets
             end
         end
     end
