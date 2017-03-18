@@ -1,13 +1,15 @@
-////////////////
+// ===========
 // config demo
+// ===========
 
 const managerNames = ["Jon", "Sansa", "Daenerys", "Tyrion", "Ramsay", "Arya"];
 const $groupManagerInput = $(".group-manager-name");
 const $loyaltyStampsInput = $(".stamps-input");
 let changedAllowed = true;
 
-//////////////////////
+
 // manager config part
+// ===================
 
 // manager name change
 function getRandomManagerName() {
@@ -33,8 +35,9 @@ $('.manager-activation').on("change", function() {
     buttonClickBehaviour();
 });
 
-////////////////////
+
 // loyalty card part
+// =================
 
 // enable/disable loyalty stamps number input on button toggling
 $('.promo-activation').on("change", function() {
