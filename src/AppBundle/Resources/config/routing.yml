@@ -4,6 +4,7 @@ home:
 
 login:
     path: /login
+    defaults: { _controller: AppBundle:Profile:login }
 
 about:
     path: /about
