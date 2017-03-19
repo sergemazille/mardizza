@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="logo">Mardizza!!!</div>
                 <h1>La <b>première</b> application de choix de la <b>Pizza</b> du <b>mardi</b>&nbsp;!!!</h1>
-                <button class="btn-secondary"><span class="icon-user"></span>Créer mon compte</button>
+                <button class="btn-secondary dialog-trigger" data-target="#dialog-account-creation"><span class="icon-user"></span>Créer mon compte</button>
             </div>
         </header>
 
@@ -189,4 +189,22 @@
             </div>
         </section>
     </main>
+
+    <aside class="dialogs">
+
+        <div id="dialog-account-creation" class="dialog-default dialog-sm">
+            <div class="dialog-header">Créer mon compte sur Mardizza!!!</div>
+            <div class="dialog-body">
+                {% include '@App/partials/forms/register.html.twig' %}
+            </div>
+            <div class="dialog-footer">
+                <div class="action-buttons">
+                    <button class="btn-grey dismiss"><span class="icon-not-allowed"></span> Annuler</button>
+                    <button class="btn-info">J'ai déjà un compte</button>
+                </div>
+            </div>
+        </div>
+
+
+    </aside>
 {% endblock %}

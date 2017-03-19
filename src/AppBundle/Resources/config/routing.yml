@@ -5,6 +5,12 @@ home:
 login:
     path: /login
     defaults: { _controller: AppBundle:Profile:login }
+    methods: [GET, POST]
+
+register:
+    path: /register
+    defaults: { _controller: AppBundle:Profile:register }
+    methods: POST
 
 about:
     path: /about

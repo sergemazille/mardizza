@@ -1,3 +1,5 @@
+import { Form } from "../mardizza/Form";
+
 export class Dialog {
 
     // button events
@@ -39,6 +41,7 @@ export class Dialog {
                 // animate out
                 setTimeout(
                     function () {
+                        document.body.appendChild(Dialog.dialog); // save dialog before its container is removed
                         Dialog.dialog.classList.remove('in');
                         Dialog.backdrop.classList.remove('in');
                         Dialog.clear();
@@ -54,12 +57,13 @@ export class Dialog {
             function() {
                 Dialog.backdrop.remove();
                 Dialog.dialogContainer.remove();
+                Form.removeInputs();
             }, 500
         );
     }
 
     static showDialog(dialogId) {
-        this.dialog = document.querySelector(dialogId).cloneNode(true); // doesn't mess with the original element
+        this.dialog = document.querySelector(dialogId);
         if(null == this.dialog) { return null; }
 
         // dismiss button
@@ -81,6 +85,16 @@ export class Dialog {
             function() {
                 Dialog.backdrop.classList.add('in');
                 Dialog.dialog.classList.add('in');
+
+                // focus on first input
+                var dialogInputs = Dialog.dialog.querySelectorAll("input");
+                var focusInputIsSet = false; // flag to stop with first input
+                [...dialogInputs].forEach(function(input) {
+                    if("hidden" !== input.type && false === focusInputIsSet ) {
+                        input.focus();
+                        focusInputIsSet = true;
+                    }
+                });
             }, 100
         );
     }

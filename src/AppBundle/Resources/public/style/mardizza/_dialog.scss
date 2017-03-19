@@ -1,0 +1,28 @@
+[class*="dialog-"] {
+
+    .dialog-body {
+        @extend .clearfix;
+        [type="submit"] {
+            float: right;
+        }
+    }
+
+    .dialog-footer {
+        .action-buttons {
+            display: flex;
+            flex-direction: row;
+
+            @media screen and (max-width: $xxs-max) {
+                flex-direction: column;
+
+                & > * {
+                    margin-bottom: .5em;
+                }
+            }
+
+            & > * {
+                margin-right: .5em;
+            }
+        }
+    }
+}

@@ -5,3 +5,8 @@
 .invisible {
     visibility: hidden;
 }
+
+label.required:after {
+    content: '*';
+    color: $alert;
+}
