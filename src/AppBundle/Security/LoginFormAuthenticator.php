@@ -37,18 +37,18 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         }
 
         // check csrf_token
-        $submittedToken = $request->get("csrf_token");
-        if(! $this->csrfValidator->isTokenValid(new CsrfToken('login_form', $submittedToken))){
+        $submittedToken = $request->get("csrf");
+        if(! $this->csrfValidator->isTokenValid(new CsrfToken('login_token', $submittedToken))){
             throw new AccessDeniedException("Le jeton a expiré, veuillez réessayer");
         }
 
         // return credentials
-        return array('_email' => $request->get('_email'), '_password' => $request->get('_password'));
+        return array('email' => $request->get('email'), 'password' => $request->get('password'));
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        $email = $credentials['_email'];
+        $email = $credentials['email'];
         $user = $this->em->getRepository('AppBundle:User')->findOneBy(['email' => $email]);
 
         if($user) {
@@ -60,7 +60,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        $password = $credentials['_password'];
+        $password = $credentials['password'];
 
         if (password_verify($password, $user->getPassword())) {
             return true;

@@ -205,6 +205,18 @@
             </div>
         </div>
 
+        <div id="dialog-login" class="dialog-default dialog-sm">
+            <div class="dialog-header">Me connecter</div>
+            <div class="dialog-body">
+                {% include '@App/partials/forms/login.html.twig' %}
+            </div>
+            <div class="dialog-footer">
+                <div class="action-buttons">
+                    <button class="btn-grey dismiss"><span class="icon-not-allowed"></span> Annuler</button>
+                    <button class="btn-info">Je veux créer mon compte</button>
+                </div>
+            </div>
+        </div>
 
     </aside>
 {% endblock %}

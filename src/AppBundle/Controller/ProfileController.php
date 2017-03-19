@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProfileController extends Controller
 {
-    public function loginAction() : Response
+    public function loginAction(Request $request) : Response
     {
         return $this->render('@App/profile/login.html.twig');
     }

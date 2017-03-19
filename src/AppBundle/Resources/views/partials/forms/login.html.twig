@@ -1,0 +1,16 @@
+<form action="{{ path('login') }}" method="post">
+    <input type="hidden" name="csrf" value="{{ csrf_token('login_token') }}">
+    <div class="form-group">
+        <div class="input-group">
+            <label for="email" class="required">Email</label>
+            <input id="email" type="email" name="email" class="form-control" required>
+            <div class="feedback"></div>
+        </div>
+        <div class="input-group">
+            <label for="password" class="required">Mot de passe</label>
+            <input id="password" type="password" name="password" class="form-control" required>
+            <div class="feedback"></div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Me connecter</button>
+</form>
