@@ -66,9 +66,13 @@ export class Dialog {
         });
     }
 
-    static hide() {
+    static removeAnimationClasses() {
         Dialog.dialog.classList.remove('in');
         Dialog.backdrop.classList.remove('in');
+    }
+
+    static hide() {
+        Dialog.removeAnimationClasses();
 
         // wait for animation to end before clearing dialog out
         setTimeout(Dialog.clear, 400);
@@ -84,7 +88,10 @@ export class Dialog {
 
     static setup(dialogId) {
         // start clean if an other dialog box is displayed
-        if(null != Dialog.dialog) { Dialog.clear(); }
+        if(null != Dialog.dialog) {
+            Dialog.removeAnimationClasses();
+            Dialog.clear();
+        }
 
         Dialog.dialog = document.querySelector(dialogId);
         if(null == Dialog.dialog) { return; }
