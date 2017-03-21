@@ -109,7 +109,7 @@ export class Form {
         });
     }
 
-    static removeInputs() {
+    static resetInputs() {
         $('input').val('');
         this.resetErrors();
     }
