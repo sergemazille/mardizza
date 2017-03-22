@@ -77,8 +77,8 @@ export class Form {
         return formIsValid;
     }
 
-    // form feedbacks
-    // ==============
+    // form feedback
+    // =============
     static showErrors() {
         errors.forEach(function(error) {
             let $inputGroup = $(error.element).closest('.input-group');
