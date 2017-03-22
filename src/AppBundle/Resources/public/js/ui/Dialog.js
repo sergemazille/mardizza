@@ -31,8 +31,6 @@ export class Dialog {
 
     static containerEvents() {
         this.dialogContainer.addEventListener("click", function(e) {
-            e.preventDefault();
-
             // animate out
             if( (e.target).classList.contains('dialog-container') ||    // click on backdrop
                 (e.target).classList.contains('dismiss') ||             // click on dismiss button

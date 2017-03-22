@@ -1,16 +1,19 @@
 <form action="{{ path('register') }}" method="post">
     <input type="hidden" name="csrf" value="{{ csrf_token('register_token') }}">
+
     <div class="form-group">
         <div class="input-group">
             <label for="email" class="required">Email</label>
             <input id="email" type="email" name="email" class="form-control autofocus" required>
             <div class="feedback"></div>
         </div>
+
         <div class="input-group">
             <label for="password" class="required">Mot de passe</label>
             <input id="password" type="password" name="password" class="form-control" required>
             <div class="feedback"></div>
         </div>
+
+        <button type="submit" class="btn btn-success register-submit">Créer mon compte</button>
     </div>
-    <button type="submit" class="btn btn-success">Créer mon compte</button>
 </form>

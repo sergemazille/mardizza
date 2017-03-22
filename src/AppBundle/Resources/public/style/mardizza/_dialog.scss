@@ -1,9 +1,18 @@
 [class*="dialog-"] {
 
     .dialog-body {
-        @extend .clearfix;
-        [type="submit"] {
-            float: right;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0;
+
+            [type="submit"] {
+                align-self: flex-end;
+
+                &.register-submit {
+                    margin-top: .5em;
+                }
+            }
         }
     }
 
@@ -15,14 +24,10 @@
             @media screen and (max-width: $xxs-max) {
                 flex-direction: column;
 
-                & > * {
-                    margin-bottom: .5em;
-                }
+                & > * { margin-bottom: .5em; }
             }
 
-            & > * {
-                margin-right: .5em;
-            }
+            & > * { margin-right: .5em; }
         }
     }
 }

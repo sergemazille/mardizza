@@ -58,6 +58,11 @@
         transition: all .3s ease;
     }
 
+    // slightly darker to be visible on primary-faded backgrounds (e.g. dialog windows)
+    .label.dark:before {
+        color: $grey;
+    }
+
     &:hover .label:before, &:focus .label:before { content: $checked-icon; cursor: pointer;}
 
     [type="checkbox"], [type="radio"] {
