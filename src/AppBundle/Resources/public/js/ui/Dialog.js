@@ -54,16 +54,9 @@ export class Dialog {
         Dialog.backdrop.classList.add('in');
         Dialog.dialog.classList.add('in');
 
-        // focus on first input
-        // ====================
-        let dialogInputs = Dialog.dialog.querySelectorAll("input");
-        let focusInputIsSet = false; // flag to stop with first input
-        [...dialogInputs].forEach(function(input) {
-            if("hidden" !== input.type && false === focusInputIsSet ) {
-                input.focus();
-                focusInputIsSet = true;
-            }
-        });
+        // Autofocus
+        let input = Dialog.dialog.querySelector("input.autofocus");
+        if(input) { input.focus(); }
     }
 
     static removeAnimationClasses() {
