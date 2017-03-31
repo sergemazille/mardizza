@@ -19,7 +19,7 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $username;
 
@@ -91,13 +91,7 @@ class User implements UserInterface
         $this->email = $email;
     }
 
-    public function getSalt()
-    {
-        // automatic with bcrypt
-    }
-
-    public function eraseCredentials()
-    {
-        // no need
-    }
+    // no need
+    public function getSalt(){}
+    public function eraseCredentials(){}
 }

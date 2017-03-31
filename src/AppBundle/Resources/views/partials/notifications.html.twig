@@ -1,0 +1,11 @@
+<div id="session-notifications">
+    {{ dump(app.session.flashBag) }}
+
+    {% for msg in app.session.flashBag.get('success') %}
+        <div data-type="success" data-message="{{ msg }}"></div>
+    {% endfor %}
+
+    {% for msg in app.session.flashBag.get('error') %}
+        <div data-type="error" data-message="{{ msg }}">{{ msg }}</div>
+    {% endfor %}
+</div>

@@ -8,12 +8,15 @@
 </head>
 
 <body>
+{% include '@App/partials/notifications.html.twig' %}
+
 {% block header %} {{ include('@App/partials/header.html.twig') }} {% endblock %}
 
 {% block content %}{% endblock %}
 
-{% block footer %} {{ include('@App/partials/footer.html.twig') }} {% endblock %}
+{% block footer %} {% include('@App/partials/footer.html.twig') %} {% endblock %}
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous">
 </script>
