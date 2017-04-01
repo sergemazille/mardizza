@@ -23,10 +23,11 @@ security:
                 path: /logout
 
             remember_me:
-                secret:   '%secret%'
-                lifetime: 604800 # 1 week in seconds
-                path:     /
-                always_remember_me: true
+                secret:     '%secret%'
+                lifetime:   1209600 # 2 weeks
+                path:       /
+                name:       'remember_me' # input checkbox name
+                #always_remember_me: true
             # activate different ways to authenticate
 
             # http_basic: ~
