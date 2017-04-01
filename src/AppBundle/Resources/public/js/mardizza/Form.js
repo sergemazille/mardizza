@@ -81,27 +81,6 @@ export class Form {
             }
         });
 
-        // check email is unique (via ajax call)
-        $emailInputs.each(function() {
-            let url = "/api/unique-email";
-            let email = $(this).val();
-
-            $.post(
-                url,
-                { email: email }
-            ).done(function(isUnique) {
-
-                if(!isUnique) {
-                    formIsValid = false;
-
-                    errors.add({
-                        element: $(this),
-                        message: errorMessages.EMAIL_UNIQUE
-                    });
-                }
-            });
-        });
-
         return formIsValid;
     }
 

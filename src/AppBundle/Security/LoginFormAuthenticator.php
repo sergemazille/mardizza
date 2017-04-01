@@ -3,11 +3,9 @@ declare(strict_types = 1);
 
 namespace AppBundle\Security;
 
-use AppBundle\Entity\User;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Csrf\CsrfToken;
@@ -33,19 +31,20 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         $isLoginSubmit = ($request->getPathInfo() == '/login') && ($request->isMethod('POST'));
 
         if (!$isLoginSubmit) {
-            return;
+            return null;
         }
 
         // check csrf_token
         $submittedToken = $request->get("csrf");
         if(! $this->csrfValidator->isTokenValid(new CsrfToken('login_token', $submittedToken))){
-            throw new AccessDeniedException("Le jeton a expiré, veuillez réessayer");
+            return null;
         }
 
         // return credentials
         return array('email' => $request->get('email'), 'password' => $request->get('password'));
     }
 
+    // check if we actually can find a user with provided credentials
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
         $email = $credentials['email'];
@@ -55,9 +54,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             return $user;
         }
 
-        return false;
+        return null;
     }
 
+    // and finally check password
     public function checkCredentials($credentials, UserInterface $user)
     {
         $password = $credentials['password'];
@@ -69,12 +69,13 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         return false;
     }
 
-    // if authentication fails send to login page
+    // user is redirected if he fails authentication
     protected function getLoginUrl()
     {
         return $this->router->generate('login');
     }
 
+    // default redirection for successful authentication
     protected function getDefaultSuccessRedirectUrl()
     {
         return $this->router->generate('home');

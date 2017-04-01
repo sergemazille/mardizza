@@ -13,16 +13,18 @@ class ProfileController extends Controller
     // only render login page
     public function loginAction() : Response
     {
+        // TODO : redirect user if she tries to display login page while she's already logged in
+        // if($user) => redirect
+
         return $this->render('@App/profile/login.html.twig');
     }
 
     public function registerAction(Request $request) : Response
     {
-        // data validation
-        // ===============
-
-        // email validation
+        // gather request data
         $email = $request->get('email');
+        $username = $request->get('username');
+        $password = $request->get('password');
 
         // check email is unique
         if(! $this->isUnique($email)) {
@@ -37,26 +39,31 @@ class ProfileController extends Controller
         }
 
         // password validation
-        $password = $request->get('password');
-
         if(strlen($password) < self::PASSWORD_MIN_CHARACTERS) {
             $this->addFlash('error', "Le mot de passe doit comporter au moins " . self::PASSWORD_MIN_CHARACTERS . " caractères");
             return $this->redirectToRoute('login');
         }
 
-
         // user creation
-        // =============
-
         $user = $this->get('mardizza.user');
         $user->setEmail($email);
+        $user->setUsername($username);
         $user->setPassword($password);
-
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
 
-        return $this->redirectToRoute('home');
+        // welcome message
+        $this->addFlash("success", "Bienvenue sur Mardizza !!!");
+
+        // log newly created user in
+        return $this->get('security.authentication.guard_handler')
+            ->authenticateUserAndHandleSuccess(
+                $user,
+                $request,
+                $this->get('mardizza.security.login_form_authenticator'),
+                'main'
+            );
     }
 
     public function isUniqueAction(Request $request) : Response
