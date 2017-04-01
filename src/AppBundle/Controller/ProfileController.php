@@ -30,9 +30,16 @@ class ProfileController extends Controller
             return $this->redirectToRoute('login');
         }
 
+        // check email is well formatted
+        if(! $this->isValid($email)) {
+            $this->addFlash('error', 'L\'adresse email doit être valide');
+            return $this->redirectToRoute('login');
+        }
+
         // password validation
         $password = $request->get('password');
-        if(! strlen($password) < self::PASSWORD_MIN_CHARACTERS) {
+
+        if(strlen($password) < self::PASSWORD_MIN_CHARACTERS) {
             $this->addFlash('error', "Le mot de passe doit comporter au moins " . self::PASSWORD_MIN_CHARACTERS . " caractères");
             return $this->redirectToRoute('login');
         }
@@ -49,16 +56,27 @@ class ProfileController extends Controller
         $em->persist($user);
         $em->flush();
 
-        return $this->render('@App/home.html.twig');
+        return $this->redirectToRoute('home');
     }
 
-    private function isValid($email)
+    public function isUniqueAction(Request $request) : Response
+    {
+        $email = $request->get('email');
+        return $this->json($this->isUnique($email));
+    }
+
+    private function isUnique($email) : bool
+    {
+        $em = $this->getDoctrine()->getManager();
+        $userRepository = $em->getRepository('AppBundle:User');
+        return ! $userRepository->findOneBy(["email" => $email]);
+    }
+
+    private function isValid($email) : bool
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
-    private function isUnique($email)
-    {
-        return true;
-    }
+    // needed to avoid 404 error but do nothing
+    public function logoutAction() {}
 }

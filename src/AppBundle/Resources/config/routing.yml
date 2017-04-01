@@ -7,9 +7,19 @@ login:
     defaults: { _controller: AppBundle:Profile:login }
     methods: [GET, POST]
 
+logout:
+    path: /logout
+    defaults: { _controller: AppBundle:Profile:logout }
+    methods: [GET]
+
 register:
     path: /register
     defaults: { _controller: AppBundle:Profile:register }
+    methods: POST
+
+email_is_unique:
+    path: /api/unique-email
+    defaults: { _controller: AppBundle:Profile:isUnique }
     methods: POST
 
 about:

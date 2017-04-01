@@ -4,6 +4,7 @@ let errors = new Set();
 let errorMessages = {
     REQUIRED: "Ce champ est requis",
     EMAIL: "L'adresse email doit être valide",
+    EMAIL_UNIQUE: "Cette adresse email est déjà utilisée",
     PASSWORD_LENGTH: `Le mot de passe doit comporter au moins ${PASSWORD_MIN_CHARACTERS} caractères`,
 };
 
@@ -16,7 +17,9 @@ export class Form {
     // form submission from modal windows
     static modalFormOnSubmit() {
         let $submitButtons = $(".dialogs").find("button[type='submit']");
-        $submitButtons.on("click", function() {
+        $submitButtons.on("click", function(e) {
+            e.preventDefault();
+
             // clean start
             Form.resetErrors();
 
@@ -38,7 +41,7 @@ export class Form {
         // check required fields
         let $requiredInputs = $formElement.find('input:required');
         $requiredInputs.each(function() {
-            if( '' == $(this).val() ) {
+            if( '' === $(this).val() ) {
                 formIsValid = false;
 
                 errors.add({
@@ -61,8 +64,12 @@ export class Form {
             }
         });
 
-        // check email regexp
+        // email validation
+        // ================
+
         let $emailInputs = $formElement.find('input[type="email"]');
+
+        // check email is valid (regexp)
         $emailInputs.each(function() {
             if(! EMAIL_REGEX.test($(this).val()) ) {
                 formIsValid = false;
@@ -72,6 +79,27 @@ export class Form {
                     message: errorMessages.EMAIL
                 });
             }
+        });
+
+        // check email is unique (via ajax call)
+        $emailInputs.each(function() {
+            let url = "/api/unique-email";
+            let email = $(this).val();
+
+            $.post(
+                url,
+                { email: email }
+            ).done(function(isUnique) {
+
+                if(!isUnique) {
+                    formIsValid = false;
+
+                    errors.add({
+                        element: $(this),
+                        message: errorMessages.EMAIL_UNIQUE
+                    });
+                }
+            });
         });
 
         return formIsValid;
