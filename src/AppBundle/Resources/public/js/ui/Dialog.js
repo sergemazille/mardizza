@@ -71,7 +71,7 @@ export class Dialog {
 
     static clear() {
         document.body.appendChild(Dialog.dialog); // move dialog before its container is removed
-        Dialog.dialog.style.display = "none";
+        Dialog.dialog.style.display = "none"; // hide dialog windows when dismissed
         Dialog.backdrop.remove();
         Dialog.dialogContainer.remove();
         Dialog.dialog = null;
