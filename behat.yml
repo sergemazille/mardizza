@@ -8,3 +8,4 @@ default:
         Behat\MinkExtension:
             base_url: http://mardizza.local
             goutte: ~
+            selenium2: ~
