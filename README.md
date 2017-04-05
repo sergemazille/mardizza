@@ -1,4 +1,4 @@
-#Mardizza
+# Mardizza
 
 Application de gestion du choix de la pizza du mardi
 
