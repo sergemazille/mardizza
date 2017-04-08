@@ -1,3 +1,5 @@
+import { Notification as uiNotification } from "../ui/Notification";
+
 const PASSWORD_MIN_CHARACTERS = 4;
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let errors = new Set();
@@ -6,6 +8,7 @@ let errorMessages = {
     EMAIL: "L'adresse email doit être valide",
     EMAIL_UNIQUE: "Cette adresse email est déjà utilisée",
     PASSWORD_LENGTH: `Le mot de passe doit comporter au moins ${PASSWORD_MIN_CHARACTERS} caractères`,
+    RECAPTCHA: `Échec du test anti bots, veuillez réessayer`,
 };
 
 export class Form {
@@ -16,16 +19,14 @@ export class Form {
 
     // form submission from modal windows
     static modalFormOnSubmit() {
-        let $submitButtons = $(".dialogs").find("button[type='submit']");
-        $submitButtons.on("click", function(e) {
+        $(".dialogs").find("form").submit(function(e) {
             e.preventDefault();
 
             // clean start
             Form.resetErrors();
 
-            let form = $(this).closest('form');
-
-            if(Form.isValid(form)) {
+            let form = e.currentTarget;
+            if(Form.isValid($(this))) {
                 form.submit();
             } else {
                 Form.showErrors();
@@ -80,6 +81,20 @@ export class Form {
                 });
             }
         });
+
+        // reCaptcha
+        // =========
+
+        // if there's an invalid recaptcha input
+        let $recaptchaInput = $(".recaptcha-token1");
+        if($recaptchaInput.length && "" === $recaptchaInput.val()) {
+            formIsValid = false;
+
+            let message = errorMessages.RECAPTCHA;
+            let type = "error";
+
+            uiNotification.create(message, type);
+        }
 
         return formIsValid;
     }

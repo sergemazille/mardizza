@@ -1,5 +1,6 @@
-<form action="{{ path('register') }}" method="post">
+<form class="recaptcha-validated-form" action="{{ path('register') }}" method="post">
     <div class="form-group">
+        <input class="recaptcha-token" name="recaptcha-token" type="hidden" value="">
         <div class="input-group">
             <label for="email" class="required">Email</label>
             <input id="email" type="email" name="email" class="form-control autofocus" required>
@@ -18,6 +19,21 @@
             <div class="feedback"></div>
         </div>
 
-        <button type="submit" class="btn btn-success register-submit">Créer mon compte</button>
+        <button type="submit" class="btn btn-success register-submit g-recaptcha" data-sitekey="{{ recaptcha_public }}" data-callback='onSubmit'>Créer mon compte</button>
     </div>
 </form>
+
+{# recaptcha #}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    function onSubmit(token) {
+        // store response token
+        $(".recaptcha-token").val(token);
+
+        // reset reCaptcha
+        grecaptcha.reset();
+
+        // form submission
+        $(".recaptcha-validated-form").submit();
+    }
+</script>

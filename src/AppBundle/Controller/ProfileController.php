@@ -25,6 +25,7 @@ class ProfileController extends Controller
         $email = $request->get('email');
         $username = $request->get('username');
         $password = $request->get('password');
+        $reCaptchaToken = $request->get('recaptcha-token');
 
         // check email is unique
         if(! $this->isUnique($email)) {
@@ -41,6 +42,13 @@ class ProfileController extends Controller
         // password validation
         if(strlen($password) < self::PASSWORD_MIN_CHARACTERS) {
             $this->addFlash('error', "Le mot de passe doit comporter au moins " . self::PASSWORD_MIN_CHARACTERS . " caractères");
+            return $this->redirectToRoute('login');
+        }
+
+        // reCaptcha validation
+        $reCaptchaService = $this->get('mardizza.recaptcha_service');
+        if(! $reCaptchaService->isValid($reCaptchaToken)) {
+            $this->addFlash('error', "Échec du test anti bots, veuillez réessayer");
             return $this->redirectToRoute('login');
         }
 

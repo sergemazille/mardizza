@@ -5,3 +5,7 @@ services:
 
     mardizza.user:
         class: AppBundle\Entity\User
+
+    mardizza.recaptcha_service:
+        class: AppBundle\Service\ReCaptchaService
+        arguments: ['%recaptcha_private%']
